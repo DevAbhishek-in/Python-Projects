@@ -51,13 +51,20 @@ def download_default_wordlists():
     contain the 6 expected .txt files.
     ------------------------------------------------------------------
     """
+    import urllib.request
+
+    base_url = "https://raw.githubusercontent.com/DevAbhishek-in/Python-Projects/main/cli-tools/HashBhediya/Wordlists/"
+    filenames = [
+        "wordlist1.txt", "wordlist2.txt", "wordlist3.txt",
+        "wordlist4.txt", "wordlist5.txt", "wordlist6.txt",
+    ]
+
     try:
-        # === CUSTOMIZE HERE: replace with your real clone/download command ===
-        subprocess.run(
-            ["git", "clone", "<YOUR_REPO_URL_HERE>", WORDLIST_DIR],
-            check=True
-        )
-        # =======================================================================
+        os.makedirs(WORDLIST_DIR, exist_ok=True)
+        for name in filenames:
+            url = base_url + name
+            dest = os.path.join(WORDLIST_DIR, name)
+            urllib.request.urlretrieve(url, dest)
         return os.path.isdir(WORDLIST_DIR)
     except Exception:
         return False
