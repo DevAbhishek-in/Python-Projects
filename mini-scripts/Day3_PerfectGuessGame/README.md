@@ -37,7 +37,7 @@ Clone the repository:
 ```bash
 git clone https://github.com/DevAbhishek-in/Python-Projects.git
 
-cd Python-Projects/perfect_guess_game
+cd Python-Projects/mini-scripts/Day3_perfectGuessGame
 
 python perfect_guess_game.py
 ```
